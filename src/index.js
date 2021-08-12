@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 //Components
 import ReactLoading from "react-loading";
@@ -28,7 +29,9 @@ ReactDOM.render(
         }
       >
         <div>
-          <App />
+          <Router>
+            <App />
+          </Router>
         </div>
       </Suspense>
     </ThemeProvider>

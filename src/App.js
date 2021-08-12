@@ -1,22 +1,20 @@
-import { Button, Typography } from "@material-ui/core";
-import { useTranslation } from "react-i18next";
+import { Switch, Route } from "react-router-dom";
+
+//Components
+import Home from "./pages/Home";
+import AboutMe from "./pages/AboutMe";
 
 const App = () => {
-  const { t, i18n } = useTranslation("common");
-  const isEnglish = i18n.language === "en";
-
   return (
     <div className="App">
-      <Typography variant="h1" color="secondary">
-        {t("common:title")}
-      </Typography>{" "}
-      <Button
-        variant="outlined"
-        color="secondary"
-        onClick={() => i18n.changeLanguage(isEnglish ? "es" : "en")}
-      >
-        {isEnglish ? "EN" : "ES"}
-      </Button>
+      <Switch>
+        <Route path="/about-me">
+          <AboutMe />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
     </div>
   );
 };
