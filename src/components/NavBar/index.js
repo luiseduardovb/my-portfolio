@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   AppBar,
   Box,
   CssBaseline,
   Toolbar,
+  useMediaQuery,
   useScrollTrigger,
   makeStyles,
   Typography,
 } from "@material-ui/core";
 import HeaderTabs from "./HeaderTabs";
+import DrawerMenu from "./DrawerMenu";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -52,6 +54,8 @@ function ElevationScroll({ children, window }) {
 
 const NavBar = () => {
   const classes = useStyles();
+  const smDown = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const [openDrawer, setOpenDrawer] = useState(false);
 
   return (
     <div>
@@ -66,7 +70,14 @@ const NavBar = () => {
               <Typography className={classes.typography}>portfolio</Typography>
             </Box>
             <Box className={classes.toolbar}>
-              <HeaderTabs />
+              {smDown ? (
+                <HeaderTabs />
+              ) : (
+                <DrawerMenu
+                  openDrawer={openDrawer}
+                  setOpenDrawer={setOpenDrawer}
+                />
+              )}
             </Box>
           </Toolbar>
         </AppBar>
