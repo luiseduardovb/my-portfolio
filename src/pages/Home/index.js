@@ -1,6 +1,10 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
+
+//Material UI
 import { Button, Typography } from "@material-ui/core";
+
+// Translation
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
   const { t, i18n } = useTranslation("common");
