@@ -1,12 +1,19 @@
 import { createTheme } from "@material-ui/core/styles";
 
+const levLightBlue = "#46A2D5";
+const levWhite = "#ffffff";
+
 const theme = createTheme({
   palette: {
+    common: {
+      lightBlue: levLightBlue,
+      white: levWhite,
+    },
     primary: {
-      main: "#46A2D5",
+      main: levLightBlue,
     },
     secondary: {
-      main: "#DFEDCD",
+      main: levWhite,
     },
   },
 });
