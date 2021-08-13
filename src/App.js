@@ -4,19 +4,20 @@ import { Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Skills from "./pages/Skills";
 import NavBar from "./components/NavBar";
+import Projects from "./pages/Projects";
 
 const App = () => {
   return (
     <div>
       <NavBar />
-      <div style={{ minHeight: "1200px" }}>
-        <Switch>
-          <Route path="/">
-            <Home />
-            <Skills />
-          </Route>
-        </Switch>
-      </div>
+
+      <Switch>
+        <Route path="/">
+          <Home />
+          <Skills />
+          <Projects />
+        </Route>
+      </Switch>
     </div>
   );
 };
