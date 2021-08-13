@@ -24,6 +24,7 @@ const Home = () => {
       style={{
         backgroundColor: theme.palette.common.lightBlue,
         minHeight: "100vh",
+        padding: smDown ? 50 : 200,
       }}
     >
       <Grid
@@ -40,7 +41,7 @@ const Home = () => {
             justifyContent="center"
             alignItems="center"
           >
-            <img style={{ width: "60%" }} src={Silouhette} alt="silhouette" />
+            <img style={{ width: "80%" }} src={Silouhette} alt="silhouette" />
           </Box>
         </Grid>
         <Grid item md={6} sm={12}>
