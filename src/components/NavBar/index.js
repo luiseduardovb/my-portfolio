@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
     zIndex: theme.zIndex.modal + 1,
     boxShadow: "none",
     height: "80px",
+    width: "100%",
   },
   toolbar: {
     marginLeft: "auto",

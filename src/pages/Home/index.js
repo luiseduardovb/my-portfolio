@@ -20,7 +20,11 @@ const Home = () => {
   const { t } = useTranslation("common");
 
   return (
-    <div
+    <Box
+      display="flex"
+      flexDirection={smDown ? "column" : "row"}
+      alignItems="center"
+      justifyContent={smDown ? "center" : "flex-start"}
       style={{
         backgroundColor: theme.palette.common.lightBlue,
         minHeight: "100vh",
@@ -29,9 +33,8 @@ const Home = () => {
       <Grid
         container
         direction="row"
-        alignItems="center"
+        alignItems="flex-end"
         justifyContent="center"
-        spacing={2}
       >
         <Grid item md={6} sm={12}>
           <Box
@@ -49,11 +52,11 @@ const Home = () => {
             variant={smDown ? "h4" : "h3"}
             color="secondary"
           >
-            Hey There, Im Luis Velasquez, I Develop Software
+            {t("common:intro")}
           </Typography>
         </Grid>
       </Grid>
-    </div>
+    </Box>
   );
 };
 
