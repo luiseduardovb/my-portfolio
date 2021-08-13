@@ -2,7 +2,7 @@ import { Switch, Route } from "react-router-dom";
 
 //Components
 import Home from "./pages/Home";
-import AboutMe from "./pages/AboutMe";
+import Skills from "./pages/Skills";
 import NavBar from "./components/NavBar";
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
         <Switch>
           <Route path="/">
             <Home />
-            <AboutMe />
+            <Skills />
           </Route>
         </Switch>
       </div>

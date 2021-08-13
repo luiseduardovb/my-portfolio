@@ -35,33 +35,27 @@ const HeaderTabs = () => {
       indicatorColor="none"
     >
       <Tab
-        label="About"
+        label="Skills"
         value="1"
         disableFocusRipple
         disableTouchRipple
         className={classes.tab}
       />
       <Tab
-        label="Skills"
+        label="Projects"
         value="2"
         disableFocusRipple
         disableTouchRipple
         className={classes.tab}
       />
       <Tab
-        label="Projects"
-        value="4"
-        disableFocusRipple
-        disableTouchRipple
-        className={classes.tab}
-      />
-      <Tab
         label="Contact"
-        value="5"
+        value="3"
         disableFocusRipple
         disableTouchRipple
         className={classes.tab}
       />
+
       <Button
         variant="text"
         startIcon={isEnglish ? "🇪🇸" : "🇬🇧"}

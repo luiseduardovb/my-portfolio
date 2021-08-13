@@ -1,5 +1,6 @@
 {
   "title": "Bienvenidos a React",
+  "intro": "Hola, Soy Luis Velasquez, Yo desarollo plataformas",
   "test": "Blah Blah",
   "description": {
     "part1": "To get started, edit <1>src/App.js</1> and save to reload.",
