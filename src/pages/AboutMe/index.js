@@ -1,11 +1,15 @@
-import { Typography } from "@material-ui/core";
+import { useTheme } from "@material-ui/core";
 import React from "react";
 
 const AboutMe = () => {
+  const theme = useTheme();
   return (
-    <div>
-      <Typography variant="h1">Hi</Typography>
-    </div>
+    <div
+      style={{
+        backgroundColor: theme.palette.common.black,
+        minHeight: "100vh",
+      }}
+    ></div>
   );
 };
 

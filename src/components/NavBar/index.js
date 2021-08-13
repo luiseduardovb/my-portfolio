@@ -71,12 +71,12 @@ const NavBar = () => {
             </Box>
             <Box className={classes.toolbar}>
               {smDown ? (
-                <HeaderTabs />
-              ) : (
                 <DrawerMenu
                   openDrawer={openDrawer}
                   setOpenDrawer={setOpenDrawer}
                 />
+              ) : (
+                <HeaderTabs />
               )}
             </Box>
           </Toolbar>

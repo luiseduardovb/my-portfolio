@@ -11,11 +11,9 @@ const App = () => {
       <NavBar />
       <div style={{ minHeight: "1200px" }}>
         <Switch>
-          <Route path="/about-me">
-            <AboutMe />
-          </Route>
           <Route path="/">
             <Home />
+            <AboutMe />
           </Route>
         </Switch>
       </div>
