@@ -44,8 +44,9 @@ const Projects = () => {
   const theme = useTheme();
   const primary = theme.palette.common.lightBlue;
   const smDown = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+
   return (
-    <Box bgcolor={primary} padding={10} minHeight="100vh">
+    <Box bgcolor={primary} padding={10} height="100vh">
       <Typography
         align="center"
         variant="h4"
