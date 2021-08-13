@@ -19,7 +19,7 @@ import SkillsIcon from "./SkillsIcon";
 // Material UI
 import { Box, Typography, useTheme, useMediaQuery } from "@material-ui/core";
 
-const AboutMe = () => {
+const Skills = () => {
   const theme = useTheme();
   const smDown = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   return (
@@ -92,4 +92,4 @@ const AboutMe = () => {
   );
 };
 
-export default AboutMe;
+export default Skills;
