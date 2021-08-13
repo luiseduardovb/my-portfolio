@@ -23,13 +23,7 @@ const AboutMe = () => {
   const theme = useTheme();
   const smDown = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   return (
-    <Box
-      style={{
-        backgroundColor: theme.palette.common.black,
-        minHeight: "100vh",
-        padding: 100,
-      }}
-    >
+    <Box bgcolor={theme.palette.common.black} padding={10} minHeight="100vh">
       <Typography
         variant="h3"
         align="center"
