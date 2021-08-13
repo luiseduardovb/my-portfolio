@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Skills from "./pages/Skills";
 import NavBar from "./components/NavBar";
 import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Home />
           <Skills />
           <Projects />
+          <Contact />
         </Route>
       </Switch>
     </div>
