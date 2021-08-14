@@ -6,6 +6,7 @@ import Skills from "./pages/Skills";
 import NavBar from "./components/NavBar";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Contact />
         </Route>
       </Switch>
+      <Footer />
     </div>
   );
 };
