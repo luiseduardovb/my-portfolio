@@ -1,9 +1,18 @@
 import React, { useState } from "react";
-import { Button, Tabs, Tab, makeStyles } from "@material-ui/core";
+
+import {
+  Button,
+  Tabs,
+  Tab,
+  makeStyles,
+  FormControlLabel,
+  Switch,
+} from "@material-ui/core";
 import { Link } from "react-scroll";
 
 // Translation
 import { useTranslation } from "react-i18next";
+import { Brightness2 } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   tab: {
@@ -17,15 +26,18 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "transparent",
     },
   },
+  switchIcon: {
+    fill: theme.type === "DARKMODE" ? "yellow" : "white",
+  },
 }));
 
-const HeaderTabs = () => {
+const HeaderTabs = ({ handleThemeChange, isDark, isEnglish }) => {
   const { t, i18n } = useTranslation("common");
-  const isEnglish = i18n.language === "en";
+
   const classes = useStyles();
   const [value, setValue] = useState(1);
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (_, newValue) => {
     setValue(newValue);
   };
   return (
@@ -86,6 +98,11 @@ const HeaderTabs = () => {
       >
         {isEnglish ? "ES" : "EN"}
       </Button>
+
+      <FormControlLabel
+        control={<Switch checked={isDark} onChange={handleThemeChange} />}
+        label={<Brightness2 className={classes.switchIcon} />}
+      />
     </Tabs>
   );
 };

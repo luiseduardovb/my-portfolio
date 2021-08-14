@@ -10,8 +10,11 @@ import {
   ListItemText,
   List,
   Typography,
+  FormControlLabel,
+  Switch,
+  Button,
 } from "@material-ui/core";
-import { Menu } from "@material-ui/icons";
+import { Brightness2, Menu } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/styles";
 
 // Translations
@@ -46,6 +49,12 @@ const useStyles = makeStyles((theme) => ({
   },
 
   selected: {},
+  translationButton: {
+    fontWeight: "bolder",
+    "&:hover": {
+      backgroundColor: "transparent",
+    },
+  },
   toolbarMargin: {
     ...theme.mixins.toolbar,
     marginBottom: "1em",
@@ -55,12 +64,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DrawerMenu = ({ openDrawer, setOpenDrawer }) => {
+const DrawerMenu = ({
+  openDrawer,
+  setOpenDrawer,
+  isEnglish,
+  isDark,
+  handleThemeChange,
+}) => {
   const [value, setValue] = useState("");
-  console.log("🚀 ~ file: DrawerMenu.js ~ line 73 ~ DrawerMenu ~ value", value);
   const classes = useStyles();
   const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent);
-  const { t } = useTranslation("common");
+  const { t, i18n } = useTranslation("common");
 
   const options = [
     {
@@ -139,6 +153,22 @@ const DrawerMenu = ({ openDrawer, setOpenDrawer }) => {
       </SwipeableDrawer>
       <Box display="flex">
         <Box flexGrow={1}>
+          <Button
+            size="large"
+            variant="text"
+            color="secondary"
+            disableFocusRipple
+            disableTouchRipple
+            className={classes.translationButton}
+            onClick={() => i18n.changeLanguage(isEnglish ? "es" : "en")}
+          >
+            {isEnglish ? "ES" : "EN"}
+          </Button>
+
+          <FormControlLabel
+            control={<Switch checked={isDark} onChange={handleThemeChange} />}
+            label={<Brightness2 className={classes.switchIcon} />}
+          />
           <IconButton
             className={classes.drawerIconContainer}
             onClick={() => setOpenDrawer(!openDrawer)}

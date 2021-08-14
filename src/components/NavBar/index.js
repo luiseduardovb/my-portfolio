@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-scroll";
 
+// Components
+import HeaderTabs from "./HeaderTabs";
+import DrawerMenu from "./DrawerMenu";
+
+// Material UI
 import {
   AppBar,
   Box,
@@ -11,8 +16,8 @@ import {
   makeStyles,
   Typography,
 } from "@material-ui/core";
-import HeaderTabs from "./HeaderTabs";
-import DrawerMenu from "./DrawerMenu";
+
+// Translation
 import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
@@ -58,11 +63,23 @@ function ElevationScroll({ children, window }) {
   });
 }
 
-const NavBar = () => {
+const NavBar = ({ appTheme, setAppTheme }) => {
   const classes = useStyles();
   const smDown = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const [openDrawer, setOpenDrawer] = useState(false);
-  const { t } = useTranslation("common");
+  const { t, i18n } = useTranslation("common");
+  const isEnglish = i18n.language === "en";
+
+  const handleThemeChange = (event) => {
+    const { checked } = event.target;
+    if (checked) {
+      setAppTheme("DARKMODE");
+    } else {
+      setAppTheme("LITEMODE");
+    }
+  };
+
+  const isDark = Boolean(appTheme === "DARKMODE");
 
   return (
     <div>
@@ -92,9 +109,16 @@ const NavBar = () => {
                 <DrawerMenu
                   openDrawer={openDrawer}
                   setOpenDrawer={setOpenDrawer}
+                  handleThemeChange={handleThemeChange}
+                  isDark={isDark}
+                  isEnglish={isEnglish}
                 />
               ) : (
-                <HeaderTabs />
+                <HeaderTabs
+                  handleThemeChange={handleThemeChange}
+                  isDark={isDark}
+                  isEnglish={isEnglish}
+                />
               )}
             </Box>
           </Toolbar>
