@@ -20,12 +20,12 @@ import {
 import { useTranslation } from "react-i18next";
 
 const projects = [
-  //   {
-  //     title: "Talento",
-  //     logo: TalentoLogo,
-  //     alt: "talento",
-  //     website: "www.google.com",
-  //   },
+  {
+    title: "Talento",
+    logo: TalentoLogo,
+    alt: "talento",
+    website: "www.google.com",
+  },
   {
     title: "Monetizao",
     logo: MonetizaoLogo,
@@ -38,6 +38,24 @@ const projects = [
     logo: HopeAnimalLogo,
     alt: "hope-animal-clinic",
     website: "https://www.google.com",
+  },
+  {
+    title: "Monetizao",
+    logo: MonetizaoLogo,
+    alt: "monetizao",
+    website: "https://www.monetizao.io",
+  },
+  {
+    title: "Hope Animal Clinic",
+    logo: HopeAnimalLogo,
+    alt: "hope-animal-clinic",
+    website: "https://www.google.com",
+  },
+  {
+    title: "Talento",
+    logo: TalentoLogo,
+    alt: "talento",
+    website: "www.google.com",
   },
 ];
 

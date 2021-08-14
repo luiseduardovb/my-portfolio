@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   cardImage: {
     display: "block",
     width: "100%",
-    height: "270",
+    // height: "240",
   },
 
   cardOverlay: {

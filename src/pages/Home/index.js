@@ -35,7 +35,7 @@ const Home = () => {
       <Grid
         container
         direction="row"
-        alignItems="flex-end"
+        alignItems="center"
         justifyContent="center"
       >
         <Grid item md={6} sm={12}>
@@ -52,7 +52,7 @@ const Home = () => {
           <Grid item md={6} sm={12}>
             <Typography
               align="center"
-              variant="h4"
+              variant="h3"
               color="secondary"
               style={{ fontWeight: "bold" }}
             >
@@ -60,7 +60,7 @@ const Home = () => {
             </Typography>
             <Typography
               align="center"
-              variant="h5"
+              variant="h4"
               color="secondary"
               style={{ fontWeight: "bold" }}
             >
