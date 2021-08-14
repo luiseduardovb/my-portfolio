@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-scroll";
 
 // MaterialUI
 import {
@@ -8,10 +9,13 @@ import {
   ListItem,
   ListItemText,
   List,
+  Typography,
 } from "@material-ui/core";
 import { Menu } from "@material-ui/icons";
-
 import { makeStyles } from "@material-ui/styles";
+
+// Translations
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   drawerIconContainer: {
@@ -27,35 +31,21 @@ const useStyles = makeStyles((theme) => ({
   drawer: {
     ...theme.typography.tab,
     backgroundColor: theme.palette.common.lightBlue,
-    width: "150px",
   },
-  drawerItem: {
-    ...theme.typography.tab,
-
-    color: "#ffffff",
-    opacity: 0.7,
-    "&:hover": {
-      opacity: 1,
-    },
+  listTypography: {
+    color: theme.palette.common.black,
   },
-  drawerItemRoot: {
-    "&:hover": {
-      backgroundColor: theme.palette.common.green,
-      color: "#fffff",
-      opacity: 1,
-    },
-  },
-  drawerItemSelected: {
-    "& .MuiListItemText-root": {
-      opacity: 1,
-      color: theme.palette.common.green,
+  root: {
+    "&$selected": {
       backgroundColor: "transparent",
+      color: "blue",
       "&:hover": {
-        opacity: 1,
         backgroundColor: "transparent",
       },
     },
   },
+
+  selected: {},
   toolbarMargin: {
     ...theme.mixins.toolbar,
     marginBottom: "1em",
@@ -66,8 +56,34 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const DrawerMenu = ({ openDrawer, setOpenDrawer }) => {
+  const [value, setValue] = useState("");
+  console.log("🚀 ~ file: DrawerMenu.js ~ line 73 ~ DrawerMenu ~ value", value);
   const classes = useStyles();
   const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const { t } = useTranslation("common");
+
+  const options = [
+    {
+      id: 1,
+      name: t("common:home"),
+      to: "home",
+    },
+    {
+      id: 2,
+      name: t("common:skills"),
+      to: "skills",
+    },
+    {
+      id: 3,
+      name: t("common:projects"),
+      to: "projects",
+    },
+    {
+      id: 4,
+      name: t("common:contact"),
+      to: "contact",
+    },
+  ];
 
   return (
     <>
@@ -83,24 +99,42 @@ const DrawerMenu = ({ openDrawer, setOpenDrawer }) => {
         <div className={classes.toolbarMargin} />
 
         <List disablePadding>
-          <ListItem
-            classes={{
-              root: classes.drawerItemRoot,
-              selected: classes.drawerItemSelected,
-            }}
-            onClick={() => {
-              setOpenDrawer(false);
-              //   setMenuIdx(-1);
-            }}
-            button
-            // component={Link}
-            to="/"
-            // selected={menuIdx === -1}
-          >
-            <ListItemText className={classes.drawerItem} disableTypography>
-              Home
-            </ListItemText>
-          </ListItem>
+          {options.map((option) => (
+            <ListItem
+              key={option.id}
+              selected={value === option.id}
+              component={Link}
+              to={option.to}
+              activeClass="active"
+              spy={true}
+              smooth={true}
+              duration={500}
+              classes={{
+                root: classes.root,
+                selected: classes.selected,
+              }}
+              onClick={() => {
+                setOpenDrawer(false);
+                setValue(option.id);
+              }}
+              button
+            >
+              <ListItemText
+                disableTypography
+                primary={
+                  <Typography
+                    variant="h6"
+                    className={classes.listTypography}
+                    style={{
+                      fontWeight: value === option.id ? "bolder" : "normal",
+                    }}
+                  >
+                    {option.name}
+                  </Typography>
+                }
+              />
+            </ListItem>
+          ))}
         </List>
       </SwipeableDrawer>
       <Box display="flex">
