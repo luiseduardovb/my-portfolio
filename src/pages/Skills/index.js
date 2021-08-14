@@ -17,75 +17,90 @@ import MaterialUiIcon from "../../assets/material-ui-icon.png";
 import SkillsIcon from "./SkillsIcon";
 
 // Material UI
-import { Box, Typography, useTheme, useMediaQuery } from "@material-ui/core";
+import {
+  Box,
+  Typography,
+  useTheme,
+  useMediaQuery,
+  Hidden,
+} from "@material-ui/core";
+import { useTranslation } from "react-i18next";
 
 const Skills = () => {
   const theme = useTheme();
   const smDown = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const { t } = useTranslation(["common", "skills"]);
+
   return (
-    <Box bgcolor={theme.palette.common.black} padding={10} minHeight="100vh">
+    <Box bgcolor={theme.palette.common.black} padding={10} alignItems="center">
       <Typography
         variant="h3"
         align="center"
         color="secondary"
         style={{ paddingBottom: "50px" }}
       >
-        Skills
+        {t("common:skills")}
       </Typography>
-      <Typography
-        variant="h4"
-        align={smDown ? "center" : "left"}
-        color="primary"
-      >
-        Basics
-      </Typography>
+      <Hidden smUp>
+        <Typography
+          variant="h6"
+          align={smDown ? "center" : "left"}
+          color="primary"
+        >
+          {t("skills:basics")}
+        </Typography>
+      </Hidden>
       <Box
-        paddingY={5}
+        paddingY={3}
         display="flex"
         flexDirection={smDown ? "column" : "row"}
         alignItems={smDown ? "center" : "flex-start"}
-        justifyContent={smDown ? "flex-start" : "flex-start"}
+        justifyContent={smDown ? "flex-start" : "center"}
       >
         <SkillsIcon src={GitIcon} alt="git" />
         <SkillsIcon src={ReduxIcon} alt="redux" />
         <SkillsIcon src={CssIcon} alt="css" />
         <SkillsIcon src={HtmlIcon} alt="html" />
+        <SkillsIcon src={JsIcon} alt="javascript" />
+        <SkillsIcon src={PythonIcon} alt="python" />
       </Box>
-      <Typography
-        variant="h4"
-        align={smDown ? "center" : "left"}
-        color="primary"
-      >
-        Front End
-      </Typography>
+      <Hidden smUp>
+        <Typography
+          variant="h6"
+          align={smDown ? "center" : "left"}
+          color="primary"
+        >
+          {t("skills:frontEnd")}
+        </Typography>
+      </Hidden>
       <Box
         paddingY={5}
         display="flex"
         flexDirection={smDown ? "column" : "row"}
         alignItems={smDown ? "center" : "flex-start"}
-        justifyContent={smDown ? "flex-start" : "flex-start"}
+        justifyContent={smDown ? "flex-start" : "center"}
       >
-        <SkillsIcon src={JsIcon} alt="javascript" />
-        <SkillsIcon src={NodeIcon} alt="node" />
         <SkillsIcon src={ReactIcon} alt="react" />
         <SkillsIcon src={ReactNativeIcon} alt="react-native" />
         <SkillsIcon src={MaterialUiIcon} alt="material-ui" />
       </Box>
-      <Typography
-        variant="h4"
-        align={smDown ? "center" : "left"}
-        color="primary"
-      >
-        Back End
-      </Typography>
+      <Hidden smUp>
+        <Typography
+          variant="h6"
+          align={smDown ? "center" : "left"}
+          color="primary"
+        >
+          {t("skills:backEnd")}
+        </Typography>
+      </Hidden>
       <Box
         paddingY={5}
         display="flex"
         flexDirection={smDown ? "column" : "row"}
         alignItems={smDown ? "center" : "flex-start"}
-        justifyContent={smDown ? "flex-start" : "flex-start"}
+        justifyContent={smDown ? "flex-start" : "center"}
       >
-        <SkillsIcon src={PythonIcon} alt="python" />
+        <SkillsIcon src={NodeIcon} alt="node" />
         <SkillsIcon src={DjangoIcon} alt="django" />
       </Box>
     </Box>
