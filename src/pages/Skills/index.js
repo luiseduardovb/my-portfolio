@@ -1,4 +1,5 @@
 import React from "react";
+import { Element } from "react-scroll";
 
 //Assets
 import ReactIcon from "../../assets/react-icon.png";
@@ -32,78 +33,84 @@ const Skills = () => {
   const { t } = useTranslation(["common", "skills"]);
 
   return (
-    <Box bgcolor={theme.palette.common.black} padding={10} alignItems="center">
-      <Typography
-        variant="h3"
-        align="center"
-        color="secondary"
-        style={{ paddingBottom: "50px" }}
-      >
-        {t("common:skills")}
-      </Typography>
-      <Hidden smUp>
-        <Typography
-          variant="h6"
-          align={smDown ? "center" : "left"}
-          color="primary"
-        >
-          {t("skills:basics")}
-        </Typography>
-      </Hidden>
+    <Element name="skills">
       <Box
-        paddingY={3}
-        display="flex"
-        flexDirection={smDown ? "column" : "row"}
-        alignItems={smDown ? "center" : "flex-start"}
-        justifyContent={smDown ? "flex-start" : "center"}
+        bgcolor={theme.palette.common.black}
+        padding={10}
+        alignItems="center"
       >
-        <SkillsIcon src={GitIcon} alt="git" />
-        <SkillsIcon src={ReduxIcon} alt="redux" />
-        <SkillsIcon src={CssIcon} alt="css" />
-        <SkillsIcon src={HtmlIcon} alt="html" />
-        <SkillsIcon src={JsIcon} alt="javascript" />
-        <SkillsIcon src={PythonIcon} alt="python" />
-      </Box>
-      <Hidden smUp>
         <Typography
-          variant="h6"
-          align={smDown ? "center" : "left"}
-          color="primary"
+          variant="h3"
+          align="center"
+          color="secondary"
+          style={{ paddingBottom: "50px" }}
         >
-          {t("skills:frontEnd")}
+          {t("common:skills")}
         </Typography>
-      </Hidden>
-      <Box
-        paddingY={5}
-        display="flex"
-        flexDirection={smDown ? "column" : "row"}
-        alignItems={smDown ? "center" : "flex-start"}
-        justifyContent={smDown ? "flex-start" : "center"}
-      >
-        <SkillsIcon src={ReactIcon} alt="react" />
-        <SkillsIcon src={ReactNativeIcon} alt="react-native" />
-        <SkillsIcon src={MaterialUiIcon} alt="material-ui" />
-      </Box>
-      <Hidden smUp>
-        <Typography
-          variant="h6"
-          align={smDown ? "center" : "left"}
-          color="primary"
+        <Hidden smUp>
+          <Typography
+            variant="h6"
+            align={smDown ? "center" : "left"}
+            color="primary"
+          >
+            {t("skills:basics")}
+          </Typography>
+        </Hidden>
+        <Box
+          paddingY={3}
+          display="flex"
+          flexDirection={smDown ? "column" : "row"}
+          alignItems={smDown ? "center" : "flex-start"}
+          justifyContent={smDown ? "flex-start" : "center"}
         >
-          {t("skills:backEnd")}
-        </Typography>
-      </Hidden>
-      <Box
-        paddingY={5}
-        display="flex"
-        flexDirection={smDown ? "column" : "row"}
-        alignItems={smDown ? "center" : "flex-start"}
-        justifyContent={smDown ? "flex-start" : "center"}
-      >
-        <SkillsIcon src={NodeIcon} alt="node" />
-        <SkillsIcon src={DjangoIcon} alt="django" />
+          <SkillsIcon src={GitIcon} alt="git" />
+          <SkillsIcon src={ReduxIcon} alt="redux" />
+          <SkillsIcon src={CssIcon} alt="css" />
+          <SkillsIcon src={HtmlIcon} alt="html" />
+          <SkillsIcon src={JsIcon} alt="javascript" />
+          <SkillsIcon src={PythonIcon} alt="python" />
+        </Box>
+        <Hidden smUp>
+          <Typography
+            variant="h6"
+            align={smDown ? "center" : "left"}
+            color="primary"
+          >
+            {t("skills:frontEnd")}
+          </Typography>
+        </Hidden>
+        <Box
+          paddingY={5}
+          display="flex"
+          flexDirection={smDown ? "column" : "row"}
+          alignItems={smDown ? "center" : "flex-start"}
+          justifyContent={smDown ? "flex-start" : "center"}
+        >
+          <SkillsIcon src={ReactIcon} alt="react" />
+          <SkillsIcon src={ReactNativeIcon} alt="react-native" />
+          <SkillsIcon src={MaterialUiIcon} alt="material-ui" />
+        </Box>
+        <Hidden smUp>
+          <Typography
+            variant="h6"
+            align={smDown ? "center" : "left"}
+            color="primary"
+          >
+            {t("skills:backEnd")}
+          </Typography>
+        </Hidden>
+        <Box
+          paddingY={5}
+          display="flex"
+          flexDirection={smDown ? "column" : "row"}
+          alignItems={smDown ? "center" : "flex-start"}
+          justifyContent={smDown ? "flex-start" : "center"}
+        >
+          <SkillsIcon src={NodeIcon} alt="node" />
+          <SkillsIcon src={DjangoIcon} alt="django" />
+        </Box>
       </Box>
-    </Box>
+    </Element>
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Tabs, Tab, makeStyles } from "@material-ui/core";
+import { Link } from "react-scroll";
 
 // Translation
 import { useTranslation } from "react-i18next";
@@ -40,6 +41,12 @@ const HeaderTabs = () => {
         disableFocusRipple
         disableTouchRipple
         className={classes.tab}
+        component={Link}
+        activeClass="active"
+        to="skills"
+        spy={true}
+        smooth={true}
+        duration={500}
       />
       <Tab
         label={t("common:projects")}
@@ -47,6 +54,12 @@ const HeaderTabs = () => {
         disableFocusRipple
         disableTouchRipple
         className={classes.tab}
+        component={Link}
+        activeClass="active"
+        to="projects"
+        spy={true}
+        smooth={true}
+        duration={500}
       />
       <Tab
         label={t("common:contact")}
@@ -54,6 +67,12 @@ const HeaderTabs = () => {
         disableFocusRipple
         disableTouchRipple
         className={classes.tab}
+        component={Link}
+        activeClass="active"
+        to="contact"
+        spy={true}
+        smooth={true}
+        duration={500}
       />
 
       <Button

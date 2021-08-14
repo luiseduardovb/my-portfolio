@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-scroll";
 
 import {
   AppBar,
@@ -40,6 +41,9 @@ const useStyles = makeStyles((theme) => ({
     padding: 0,
     margin: 0,
   },
+  link: {
+    cursor: "pointer",
+  },
 }));
 
 function ElevationScroll({ children, window }) {
@@ -67,12 +71,21 @@ const NavBar = () => {
         <AppBar color="primary" className={classes.appBar}>
           <Toolbar>
             <Box display="flex" flexDirection="column">
-              <Typography color="secondary" className={classes.typography}>
-                Luis V
-              </Typography>
-              <Typography className={classes.typography}>
-                {t("common:portfolio")}
-              </Typography>
+              <Link
+                activeClass="active"
+                to="home"
+                spy={true}
+                smooth={true}
+                duration={500}
+                className={classes.link}
+              >
+                <Typography color="secondary" className={classes.typography}>
+                  Luis V
+                </Typography>
+                <Typography className={classes.typography}>
+                  {t("common:portfolio")}
+                </Typography>
+              </Link>
             </Box>
             <Box className={classes.toolbar}>
               {smDown ? (

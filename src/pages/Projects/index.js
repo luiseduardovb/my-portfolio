@@ -1,4 +1,5 @@
 import React from "react";
+import { Element } from "react-scroll";
 
 // Assets
 
@@ -66,28 +67,30 @@ const Projects = () => {
   const { t } = useTranslation("common");
 
   return (
-    <Box bgcolor={primary} padding={smDown ? 5 : 10}>
-      <Typography
-        align="center"
-        variant="h4"
-        color="secondary"
-        style={{ paddingBottom: "50px" }}
-      >
-        {t("common:projects")}
-      </Typography>
+    <Element name="projects">
+      <Box bgcolor={primary} padding={smDown ? 5 : 10}>
+        <Typography
+          align="center"
+          variant="h4"
+          color="secondary"
+          style={{ paddingBottom: "50px" }}
+        >
+          {t("common:projects")}
+        </Typography>
 
-      <Grid
-        container
-        direction={smDown ? "column" : "row"}
-        justify={smDown ? "center" : "center"}
-        alignItems="center"
-        // spacing={2}
-      >
-        {projects.map((project) => (
-          <Project {...project} />
-        ))}
-      </Grid>
-    </Box>
+        <Grid
+          container
+          direction={smDown ? "column" : "row"}
+          justify={smDown ? "center" : "center"}
+          alignItems="center"
+          // spacing={2}
+        >
+          {projects.map((project) => (
+            <Project {...project} />
+          ))}
+        </Grid>
+      </Box>
+    </Element>
   );
 };
 

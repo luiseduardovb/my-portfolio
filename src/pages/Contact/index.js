@@ -1,4 +1,5 @@
 import React from "react";
+import { Element } from "react-scroll";
 
 // Components
 import ContactAvatar from "../../components/ContactAvatar";
@@ -21,7 +22,7 @@ import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   title: {
-    marginBottom: "50px",
+    paddingTop: "50px",
   },
 }));
 
@@ -57,91 +58,101 @@ const Contact = () => {
       );
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <Element name="contact">
       <Box bgcolor={levBlack} padding={smDown ? 5 : 10}>
-        <Typography variant="h4" color="secondary" className={classes.title}>
-          {t("common:contact")}
-        </Typography>
+        {" "}
+        <form onSubmit={handleSubmit}>
+          <Typography variant="h4" color="secondary" className={classes.title}>
+            {t("common:contact")}
+          </Typography>
 
-        <Grid container>
-          <Grid item md={6} sm={12}>
-            <Typography
-              variant="h5"
-              color="secondary"
-              className={classes.title}
-            >
-              {t("contact:contactme")}
-            </Typography>
-
-            <Grid container spacing={2}>
-              <Grid item md={6} sm={12} xs={12}>
-                <CustomTextfield
-                  name="name"
-                  label={t("contact:name")}
-                  type="text"
-                  placeholder={t("contact:namePlaceholder")}
-                  fullWidth
-                />
-              </Grid>
-              <Grid item md={6} sm={12} xs={12}>
-                <CustomTextfield
-                  name="email"
-                  label={t("contact:email")}
-                  placeholder={t("contact:emailPlaceholder")}
-                  type="email"
-                  fullWidth
-                />
-              </Grid>
-              <Grid item md={12} sm={12} xs={12}>
-                <CustomTextfield
-                  name="message"
-                  label={t("contact:message")}
-                  placeholder={t("contact:messagePlaceholder")}
-                  fullWidth
-                  multiline
-                  rows={10}
-                />
-              </Grid>
-              <Box
-                clone
-                display="flex"
-                flexDirection="row"
-                justifyContent="flex-end"
+          <Grid container>
+            <Grid item md={6} sm={12}>
+              {/* <Typography
+                variant="h4"
+                color="secondary"
+                className={classes.title}
               >
-                <Grid item md={12} xs={12}>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    style={{ color: "white" }}
-                    type="submit"
-                  >
-                    {t("contact:send")}
-                  </Button>
+                {t("common:contact")}
+              </Typography> */}
+              <Typography
+                variant="h5"
+                color="secondary"
+                className={classes.title}
+              >
+                {t("contact:contactme")}
+              </Typography>
+
+              <Grid container spacing={2}>
+                <Grid item md={6} sm={12} xs={12}>
+                  <CustomTextfield
+                    name="name"
+                    label={t("contact:name")}
+                    type="text"
+                    placeholder={t("contact:namePlaceholder")}
+                    fullWidth
+                  />
                 </Grid>
-              </Box>
+                <Grid item md={6} sm={12} xs={12}>
+                  <CustomTextfield
+                    name="email"
+                    label={t("contact:email")}
+                    placeholder={t("contact:emailPlaceholder")}
+                    type="email"
+                    fullWidth
+                  />
+                </Grid>
+                <Grid item md={12} sm={12} xs={12}>
+                  <CustomTextfield
+                    name="message"
+                    label={t("contact:message")}
+                    placeholder={t("contact:messagePlaceholder")}
+                    fullWidth
+                    multiline
+                    rows={10}
+                  />
+                </Grid>
+                <Box
+                  clone
+                  display="flex"
+                  flexDirection="row"
+                  justifyContent="flex-end"
+                >
+                  <Grid item md={12} xs={12}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      style={{ color: "white" }}
+                      type="submit"
+                    >
+                      {t("contact:send")}
+                    </Button>
+                  </Grid>
+                </Box>
+              </Grid>
             </Grid>
+            <Hidden smDown>
+              <Grid item md={6} sm={12} xs={12}>
+                <Box style={{ marginTop: "50px" }}>
+                  <ContactAvatar
+                    title="WhatsApp"
+                    info="+50499502141"
+                    icon={<Phone />}
+                    href="tel:+50499502141"
+                  />
+                  <ContactAvatar
+                    title="Email"
+                    info="levb92@gmail.com"
+                    icon={<Email />}
+                    href="mailto:levb92@gmail.com"
+                  />
+                </Box>
+              </Grid>
+            </Hidden>
           </Grid>
-          <Hidden smDown>
-            <Grid item md={6} sm={12} xs={12}>
-              <Box style={{ marginTop: "50px" }}>
-                <ContactAvatar
-                  title="WhatsApp"
-                  info="+50499502141"
-                  icon={<Phone />}
-                  href="tel:+50499502141"
-                />
-                <ContactAvatar
-                  title="Email"
-                  info="levb92@gmail.com"
-                  icon={<Email />}
-                  href="mailto:levb92@gmail.com"
-                />
-              </Box>
-            </Grid>
-          </Hidden>
-        </Grid>
+        </form>
       </Box>
-    </form>
+    </Element>
   );
 };
 
