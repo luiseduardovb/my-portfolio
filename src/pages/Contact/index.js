@@ -1,3 +1,11 @@
+import React from "react";
+
+// Components
+import ContactAvatar from "../../components/ContactAvatar";
+import CustomTextfield from "../../components/CustomTextfield";
+
+//Material UI
+
 import {
   Box,
   Button,
@@ -8,9 +16,6 @@ import {
 } from "@material-ui/core";
 import emailjs from "emailjs-com";
 import { Email, Phone } from "@material-ui/icons";
-import React from "react";
-import ContactAvatar from "../../components/ContactAvatar";
-import CustomTextfield from "../../components/CustomTextfield";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -108,7 +113,6 @@ const Contact = () => {
                   >
                     Send Message
                   </Button>
-                  {/* <input type="submit">Send</input> */}
                 </Grid>
               </Box>
             </Grid>
@@ -116,14 +120,16 @@ const Contact = () => {
           <Grid item md={6} sm={12} xs={12}>
             <Box style={{ marginTop: "50px" }}>
               <ContactAvatar
-                title="Whats App"
-                info="+504 99502141"
+                title="WhatsApp"
+                info="+50499502141"
                 icon={<Phone />}
+                href="tel:+50499502141"
               />
               <ContactAvatar
                 title="Email"
                 info="levb92@gmail.com"
                 icon={<Email />}
+                href="mailto:levb92@gmail.com"
               />
             </Box>
           </Grid>

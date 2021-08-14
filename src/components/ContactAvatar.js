@@ -1,8 +1,9 @@
 import React from "react";
 
+//Material UI
 import { Avatar, Box, Grid, Typography } from "@material-ui/core";
 
-const ContactAvatar = ({ title, info, icon }) => {
+const ContactAvatar = ({ title, info, icon, href }) => {
   return (
     <Box
       clone
@@ -23,7 +24,9 @@ const ContactAvatar = ({ title, info, icon }) => {
             container
             alignItems="center"
             justifyContent="flex-start"
-            style={{ width: "200px" }}
+            style={{ width: "200px", textDecoration: "none" }}
+            component="a"
+            href={href}
           >
             <Grid item md={4} sm={4} xs={4}>
               <Avatar>{icon}</Avatar>
