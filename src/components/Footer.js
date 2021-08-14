@@ -19,11 +19,17 @@ const useStyles = makeStyles((theme) => ({
     width: theme.spacing(7),
     height: theme.spacing(7),
   },
-  icon: {
-    color: theme.palette.common.black,
-  },
   callToAction: {
     backgroundColor: "transparent",
+  },
+  footer: {
+    // backgroundColor: theme.palette.common.white,
+    width: "100%",
+    zIndex: 1302,
+    position: "relative",
+  },
+  icon: {
+    color: theme.palette.common.black,
   },
 }));
 
@@ -34,7 +40,7 @@ const Footer = () => {
   const black = theme.palette.common.black;
 
   return (
-    <footer>
+    <footer className={classes.footer}>
       <Box
         display="flex"
         alignItems="center"
