@@ -17,6 +17,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@material-ui/core";
+import { useTranslation } from "react-i18next";
 
 const projects = [
   //   {
@@ -44,20 +45,20 @@ const Projects = () => {
   const theme = useTheme();
   const primary = theme.palette.common.lightBlue;
   const smDown = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const { t } = useTranslation("common");
 
   return (
-    <Box bgcolor={primary} padding={10} height="100vh">
+    <Box bgcolor={primary} padding={smDown ? 2 : 10}>
       <Typography
         align="center"
         variant="h4"
         color="secondary"
         style={{ paddingBottom: "50px" }}
       >
-        Projects
+        {t("common:projects")}
       </Typography>
 
       <Grid
-        style={{ marginTop: "50px" }}
         container
         direction={smDown ? "column" : "row"}
         justify={smDown ? "center" : "center"}

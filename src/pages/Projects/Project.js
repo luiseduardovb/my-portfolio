@@ -2,6 +2,7 @@ import React from "react";
 
 // Material UI
 import { Box, Button, Grid, makeStyles } from "@material-ui/core";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -44,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Project = ({ title, logo, alt, website }) => {
   const classes = useStyles();
+  const { t } = useTranslation("projects");
 
   return (
     <Grid item md={4} sm={12}>
@@ -65,7 +67,7 @@ const Project = ({ title, logo, alt, website }) => {
             href={website}
             target="_blank"
           >
-            Visit Site
+            {t("projects:visitSite")}
           </Button>
         </Box>
       </Box>
