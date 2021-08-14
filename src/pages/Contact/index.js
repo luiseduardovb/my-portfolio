@@ -16,6 +16,7 @@ import {
 } from "@material-ui/core";
 import emailjs from "emailjs-com";
 import { Email, Phone } from "@material-ui/icons";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -27,6 +28,9 @@ const Contact = () => {
   const classes = useStyles();
   const theme = useTheme();
   const levBlack = theme.palette.common.black;
+  const { t } = useTranslation(["common", "contact"]);
+
+  const smDown = theme.breakpoints.down("sm");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -53,9 +57,9 @@ const Contact = () => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <Box bgcolor={levBlack} minHeight="100vh" padding={10}>
+      <Box bgcolor={levBlack} padding={smDown ? 2 : 10}>
         <Typography variant="h4" color="secondary" className={classes.title}>
-          Contact Me
+          {t("common:contact")}
         </Typography>
 
         <Grid container>
@@ -65,34 +69,33 @@ const Contact = () => {
               color="secondary"
               className={classes.title}
             >
-              Im here to answer any questions or inquiries. Reach out to me and
-              I will respond as soon as I can.
+              {t("contact:contactme")}
             </Typography>
 
             <Grid container spacing={2}>
               <Grid item md={6} sm={12} xs={12}>
                 <CustomTextfield
                   name="name"
-                  label="Name"
+                  label={t("contact:name")}
                   type="text"
-                  placeholder="Enter Name"
+                  placeholder={t("contact:namePlaceholder")}
                   fullWidth
                 />
               </Grid>
               <Grid item md={6} sm={12} xs={12}>
                 <CustomTextfield
                   name="email"
-                  label="Email"
+                  label={t("contact:email")}
+                  placeholder={t("contact:emailPlaceholder")}
                   type="email"
-                  placeholder="Enter Email"
                   fullWidth
                 />
               </Grid>
               <Grid item md={12} sm={12} xs={12}>
                 <CustomTextfield
                   name="message"
-                  label="Message"
-                  placeholder="Type your message"
+                  label={t("contact:message")}
+                  placeholder={t("contact:messagePlaceholder")}
                   fullWidth
                   multiline
                   rows={10}
@@ -111,7 +114,7 @@ const Contact = () => {
                     style={{ color: "white" }}
                     type="submit"
                   >
-                    Send Message
+                    {t("contact:send")}
                   </Button>
                 </Grid>
               </Box>
