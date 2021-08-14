@@ -10,6 +10,7 @@ import {
   Box,
   Button,
   Grid,
+  Hidden,
   makeStyles,
   Typography,
   useTheme,
@@ -57,7 +58,7 @@ const Contact = () => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <Box bgcolor={levBlack} padding={smDown ? 2 : 10}>
+      <Box bgcolor={levBlack} padding={smDown ? 5 : 10}>
         <Typography variant="h4" color="secondary" className={classes.title}>
           {t("common:contact")}
         </Typography>
@@ -120,22 +121,24 @@ const Contact = () => {
               </Box>
             </Grid>
           </Grid>
-          <Grid item md={6} sm={12} xs={12}>
-            <Box style={{ marginTop: "50px" }}>
-              <ContactAvatar
-                title="WhatsApp"
-                info="+50499502141"
-                icon={<Phone />}
-                href="tel:+50499502141"
-              />
-              <ContactAvatar
-                title="Email"
-                info="levb92@gmail.com"
-                icon={<Email />}
-                href="mailto:levb92@gmail.com"
-              />
-            </Box>
-          </Grid>
+          <Hidden smDown>
+            <Grid item md={6} sm={12} xs={12}>
+              <Box style={{ marginTop: "50px" }}>
+                <ContactAvatar
+                  title="WhatsApp"
+                  info="+50499502141"
+                  icon={<Phone />}
+                  href="tel:+50499502141"
+                />
+                <ContactAvatar
+                  title="Email"
+                  info="levb92@gmail.com"
+                  icon={<Email />}
+                  href="mailto:levb92@gmail.com"
+                />
+              </Box>
+            </Grid>
+          </Hidden>
         </Grid>
       </Box>
     </form>

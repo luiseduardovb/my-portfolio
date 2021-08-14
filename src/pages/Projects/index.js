@@ -48,7 +48,7 @@ const Projects = () => {
   const { t } = useTranslation("common");
 
   return (
-    <Box bgcolor={primary} padding={smDown ? 2 : 10}>
+    <Box bgcolor={primary} padding={smDown ? 5 : 10}>
       <Typography
         align="center"
         variant="h4"
