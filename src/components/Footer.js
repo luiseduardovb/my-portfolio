@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 
 // Assets
 import GitHubLogo from "../assets/github.png";
@@ -6,15 +7,23 @@ import GitHubLogo from "../assets/github.png";
 import {
   Avatar,
   Box,
+  Hidden,
   makeStyles,
   Typography,
   useTheme,
 } from "@material-ui/core";
+import { Email, Phone } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
     width: theme.spacing(7),
     height: theme.spacing(7),
+  },
+  icon: {
+    color: theme.palette.common.black,
+  },
+  callToAction: {
+    backgroundColor: "transparent",
   },
 }));
 
@@ -23,6 +32,7 @@ const Footer = () => {
   const theme = useTheme();
   const primary = theme.palette.common.lightBlue;
   const black = theme.palette.common.black;
+
   return (
     <footer>
       <Box
@@ -37,6 +47,24 @@ const Footer = () => {
             © 2021 Luis Velasquez{" "}
           </Typography>
         </Box>
+
+        <Hidden smUp>
+          <Avatar
+            component="a"
+            href="tel:+50499502141"
+            className={clsx(classes.avatar, classes.callToAction)}
+          >
+            <Phone className={classes.icon} />
+          </Avatar>
+          <Avatar
+            component="a"
+            href="mailto:levb92@gmail.com"
+            target="_blank"
+            className={clsx(classes.avatar, classes.callToAction)}
+          >
+            <Email className={classes.icon} />
+          </Avatar>
+        </Hidden>
 
         <Avatar
           src={GitHubLogo}
