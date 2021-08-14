@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const HeaderTabs = () => {
-  const { i18n } = useTranslation("common");
+  const { t, i18n } = useTranslation("common");
   const isEnglish = i18n.language === "en";
   const classes = useStyles();
   const [value, setValue] = useState(1);
@@ -35,21 +35,21 @@ const HeaderTabs = () => {
       indicatorColor="none"
     >
       <Tab
-        label="Skills"
+        label={t("common:skills")}
         value="1"
         disableFocusRipple
         disableTouchRipple
         className={classes.tab}
       />
       <Tab
-        label="Projects"
+        label={t("common:projects")}
         value="2"
         disableFocusRipple
         disableTouchRipple
         className={classes.tab}
       />
       <Tab
-        label="Contact"
+        label={t("common:contact")}
         value="3"
         disableFocusRipple
         disableTouchRipple
@@ -57,8 +57,8 @@ const HeaderTabs = () => {
       />
 
       <Button
+        size="large"
         variant="text"
-        startIcon={isEnglish ? "🇪🇸" : "🇬🇧"}
         color="secondary"
         disableFocusRipple
         disableTouchRipple

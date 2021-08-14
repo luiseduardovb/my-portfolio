@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core";
 import HeaderTabs from "./HeaderTabs";
 import DrawerMenu from "./DrawerMenu";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -57,6 +58,7 @@ const NavBar = () => {
   const classes = useStyles();
   const smDown = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const [openDrawer, setOpenDrawer] = useState(false);
+  const { t } = useTranslation("common");
 
   return (
     <div>
@@ -68,7 +70,9 @@ const NavBar = () => {
               <Typography color="secondary" className={classes.typography}>
                 Luis V
               </Typography>
-              <Typography className={classes.typography}>portfolio</Typography>
+              <Typography className={classes.typography}>
+                {t("common:portfolio")}
+              </Typography>
             </Box>
             <Box className={classes.toolbar}>
               {smDown ? (
