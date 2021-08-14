@@ -7,33 +7,27 @@ import reportWebVitals from "./reportWebVitals";
 //Components
 import App from "./App";
 
-// Material UI
-import { ThemeProvider } from "@material-ui/core/styles";
-import theme from "../src/styles/theme";
-
 // Translation
 import "./i18n";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <Suspense
-        fallback={
-          <ReactLoading
-            type={"spinningBubbles"}
-            color={"#fff"}
-            height={100}
-            width={100}
-          />
-        }
-      >
-        <div>
-          <Router>
-            <App />
-          </Router>
-        </div>
-      </Suspense>
-    </ThemeProvider>
+    <Suspense
+      fallback={
+        <ReactLoading
+          type={"spinningBubbles"}
+          color={"#fff"}
+          height={100}
+          width={100}
+        />
+      }
+    >
+      <div>
+        <Router>
+          <App />
+        </Router>
+      </div>
+    </Suspense>
   </React.StrictMode>,
   document.getElementById("root")
 );
