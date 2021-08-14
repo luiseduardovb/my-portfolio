@@ -17,7 +17,8 @@ import { useTranslation } from "react-i18next";
 const Home = () => {
   const theme = useTheme();
   const smDown = useMediaQuery((theme) => theme.breakpoints.down("sm"));
-  const { t } = useTranslation("common");
+
+  const { t } = useTranslation("home");
 
   return (
     <Box
@@ -47,15 +48,26 @@ const Home = () => {
             <img style={{ width: "80%" }} src={Silouhette} alt="silhouette" />
           </Box>
         </Grid>
-        <Grid item md={6} sm={12}>
-          <Typography
-            align="center"
-            variant={smDown ? "h4" : "h3"}
-            color="secondary"
-          >
-            {t("common:intro")}
-          </Typography>
-        </Grid>
+        <Box clone paddingY={smDown && 10}>
+          <Grid item md={6} sm={12}>
+            <Typography
+              align="center"
+              variant="h4"
+              color="secondary"
+              style={{ fontWeight: "bold" }}
+            >
+              {t("home:greeting")}
+            </Typography>
+            <Typography
+              align="center"
+              variant="h5"
+              color="secondary"
+              style={{ fontWeight: "bold" }}
+            >
+              {t("home:greetingMessage")}
+            </Typography>
+          </Grid>
+        </Box>
       </Grid>
     </Box>
   );

@@ -1,9 +1,6 @@
 {
-  "title": "Bienvenidos a React",
-  "intro": "Hola 👋🏻, Bienvenido/a a mi Perfil",
-  "test": "Blah Blah",
-  "description": {
-    "part1": "To get started, edit <1>src/App.js</1> and save to reload.",
-    "part2": "Switch language between english and german using buttons above."
-  }
+  "portfolio": "portafolio",
+  "skills": "Habilidades",
+  "projects": "Proyectos",
+  "contact": "Contactame"
 }
